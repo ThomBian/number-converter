@@ -1,0 +1,19 @@
+{
+  "name": "number-converter",
+  "version": "1.0.0",
+  "description": "digit to roman format converter",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomBian/number-converter.git"
+  },
+  "author": "Thomas Bianchini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomBian/number-converter/issues"
+  },
+  "homepage": "https://github.com/ThomBian/number-converter#readme"
+}
