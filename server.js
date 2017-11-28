@@ -8,7 +8,6 @@ app.use(express.static('public'));
 
 function convertRoman(req, res) {
     const value = req.params.value;
-    console.log('youhou', value);
     return converter.toRoman(value)
         .then(converted => {
             res.send({
