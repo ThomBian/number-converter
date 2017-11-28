@@ -1,23 +1,23 @@
 const express = require('express');
-const converter = require('converter');
+
+const converter = require('./converter');
 
 const app = express();
 
 function convertRoman(req, res) {
-    const value = res.params.value;
-    console.log('youhou');
+    const value = req.params.value;
     return converter.toRoman(value)
         .then(converted => {
-            res.send(JSON.stringify({
+            res.send({
                 success: true,
                 result: converted
-            }));
+            });
         })
         .catch(e => {
-            res.send(JSON.stringify({
+            res.send({
                 success: false,
-                e
-            }));
+                e: e.message
+            });
         });
 }
 

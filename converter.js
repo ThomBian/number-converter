@@ -26,7 +26,7 @@ function toRoman (digit) {
         if (digit === '') {
             reject(new Error('value is empty'));
         }
-        if (digit === 0) {
+        if (digit == 0) {
             reject(new Error('0 doest not exist in Roman format'));
         }
         if (digit < 0 || digit > 100) {
