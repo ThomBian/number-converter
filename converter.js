@@ -1,3 +1,23 @@
+const converterTranslate = [{
+        valInNumber:100, valInRoman: 'C'
+    },{
+        valInNumber:90, valInRoman: 'XC'
+    },{
+        valInNumber:50, valInRoman: 'L'
+    },{
+        valInNumber:40, valInRoman: 'XL'
+    },{
+        valInNumber:10, valInRoman: 'X'
+    },{
+        valInNumber:9, valInRoman: 'IX'
+    },{
+        valInNumber:5, valInRoman: 'V'
+    },{
+        valInNumber:4, valInRoman: 'IV'
+    },{
+        valInNumber:1, valInRoman: 'I'
+    }];
+
 function toRoman (digit) {
     return new Promise((resolve, reject)=> {
         if (isNaN(digit) || Array.isArray(digit) || typeof(digit) === 'boolean') {
@@ -18,36 +38,15 @@ function toRoman (digit) {
 
 function _convertToRoman (digit) {
     let remaining = digit;
+    let indexInTranslater = 0;
     let returnValue = '';
     while (remaining > 0) {
-        if (remaining === 100) {
-            returnValue = 'C';
-            remaining -= 100;
-        } else if (remaining - 90 > 0) {
-            returnValue = 'XC';
-            remaining -= 90;
-        } else if (remaining - 50 >= 0) {
-            returnValue = 'L';
-            remaining -= 50;
-        } else if (remaining - 40 >= 0) {
-            returnValue = 'XL';
-            remaining -= 40;
-        } else if (remaining - 10 >= 0) {
-            returnValue = `${returnValue}X`;
-            remaining -= 10;
-        }
-        else if (remaining === 9) {
-            returnValue = `${returnValue}IX`;
-            remaining -= 9;
-        } else if (remaining - 5 >= 0) {
-            returnValue = `${returnValue}V`;
-            remaining -= 5;
-        } else if (remaining === 4) {
-            returnValue = `${returnValue}IV`;
-            remaining -= 4;
+        const currentTranslation = converterTranslate[indexInTranslater];
+        if (remaining - currentTranslation.valInNumber >= 0) {
+            returnValue = `${returnValue}${currentTranslation.valInRoman}`;
+            remaining -= currentTranslation.valInNumber;
         } else {
-            returnValue = `${returnValue}I`;
-            remaining -= 1;
+            indexInTranslater++;
         }
     }
     return returnValue;
