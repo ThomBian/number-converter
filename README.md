@@ -8,7 +8,7 @@ Tests : mocha, chai, chai-as-promised
 # Test the project
 * You need Node, ensure that everything is set up on your environnement before going on
 * Clone the repository wherever you want on your system
-* Go in the folder freshely created : ```cd number-converter```
+* Go in the folder freshely created : ```cd number-converter``` and type ```npm install``` to set the dependencies up
 * Ensure you are on the master branch of the git repository (```git branch```)
 * The code on master is the first part of the project : HTTP classic
 * To test the app : ```node server.js``` and go on [app](http://localhost:3000) and have fun
